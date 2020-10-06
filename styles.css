@@ -1,0 +1,29 @@
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.faq-list {
+  list-style: none;
+  padding: 0;
+  border: 1px solid rgba(108, 123, 138, 0.2);
+}
+
+.faq-list .faq-item + .faq-item {
+  border-top: 1px solid rgba(108, 123, 138, 0.2);
+}
+.collapsible-header {
+  border: 1px solid red;
+}
+.collapsible-header h3 {
+  margin: 0;
+}
+.collapsible-body {
+  border: 1px solid green;
+  display: none;
+}
+.collapsible-body p {
+  margin: 0;
+}
+.active {
+  display: block;
+}
