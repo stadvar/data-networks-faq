@@ -12,18 +12,39 @@
   border-top: 1px solid rgba(108, 123, 138, 0.2);
 }
 .collapsible-header {
-  border: 1px solid red;
+  padding: 5px;
+  cursor: pointer;
 }
-.collapsible-header h3 {
+.collapsible-header:hover {
+  color: #d10000;
+}
+.faq-item .collapsible-header::before {
+  content: '▶';
+  display: inline-block;
+}
+.faq-item.active .collapsible-header::before {
+  content: '▼';
+  color: #d10000;
+}
+.faq-item.active .collapsible-header h4 {
+  color: #d10000;
+}
+.collapsible-header h4 {
+  display: inline-block;
   margin: 0;
 }
 .collapsible-body {
-  border: 1px solid green;
-  display: none;
+  border-top: 2px dashed #d10000;
+  padding: 10px;
 }
 .collapsible-body p {
   margin: 0;
 }
-.active {
-  display: block;
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
 }

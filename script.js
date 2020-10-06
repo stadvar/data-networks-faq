@@ -2,22 +2,30 @@ const list = document.querySelector('.faq-list');
 
 list.addEventListener('click', e => {
   //--
-  if (e.target == e.target.closest('.collapsible-header')) {
-    const active = document.querySelector('.collapsible-body.active');
+  console.log(e.target.closest('.collapsible-header'));
+  if (e.target.closest('.collapsible-header')) {
+    const active = document.querySelector('[data-hidden="false"]');
+    console.log(e.target);
+
     if (active && e.target.closest('.faq-item') == active.closest('.faq-item')) {
-      //   console.log('ya-ya');
-      active.classList.toggle('active');
+      active.classList.toggle('visually-hidden');
+      e.target.closest('.faq-item').classList.toggle('active');
+      active.dataset.hidden = !Number(active.dataset.hidden);
     } else if (active) {
-      active.classList.remove('active');
+      active.classList.add('visually-hidden');
+      active.closest('.faq-item').classList.toggle('active');
+      active.dataset.hidden = true;
       //--
       const act = e.target.closest('.faq-item').children[1];
-      act.classList.add('active');
+      act.classList.remove('visually-hidden');
+      e.target.closest('.faq-item').classList.toggle('active');
+      act.dataset.hidden = false;
     } else if (true) {
-      //--
       const act = e.target.closest('.faq-item').children[1];
-      act.classList.add('active');
+      e.target.closest('.faq-item').classList.add('active');
+      act.classList.remove('visually-hidden');
+      act.dataset.hidden = false;
     }
-    //--
   }
   //--
 });
